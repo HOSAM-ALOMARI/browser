@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History - Safe Browser</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="titlebar">
+    <div class="titlebar-drag">
+      <span>History - Safe Browser</span>
+    </div>
+    <div class="window-controls">
+      <button id="minimize" class="control-button"><i class="fas fa-window-minimize"></i></button>
+      <button id="maximize" class="control-button"><i class="fas fa-window-maximize"></i></button>
+      <button id="close" class="control-button"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+  <div class="toolbar">
+    <div class="navigation-buttons">
+      <button id="back" class="nav-button" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+      <button id="forward" class="nav-button"><i class="fas fa-arrow-right"></i></button>
+      <button id="reload" class="nav-button"><i class="fas fa-sync-alt"></i></button>
+    </div>
+  </div>
+  <div class="content">
+    <h2>History</h2>
+    <ul id="history-list">
+    </ul>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
