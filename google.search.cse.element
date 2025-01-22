@@ -1,0 +1,36 @@
+// تهيئة Google CSE
+const initializeSearch = () => {
+  google.search.cse.element.render({
+    div: "search-results", // العنصر الذي ستظهر فيه النتائج
+    tag: 'searchresults-only', // عرض النتائج فقط (بدون واجهة بحث)
+    gname: 'gsearch' // اسم عنصر البحث
+  });
+};
+
+// البحث عند الضغط على Enter أو زر البحث
+const search = (query) => {
+  if (query) {
+    const element = google.search.cse.element.getElement('gsearch');
+    element.execute(query); // تنفيذ البحث
+  }
+};
+
+// تهيئة البحث عند تحميل الصفحة
+window.__gcse = {
+  parsetags: 'explicit',
+  callback: initializeSearch
+};
+
+// البحث عند الضغط على Enter
+document.getElementById('url-bar').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const query = e.target.value.trim();
+    search(query);
+  }
+});
+
+// البحث عند النقر على زر البحث
+document.getElementById('go').addEventListener('click', () => {
+  const query = document.getElementById('url-bar').value.trim();
+  search(query);
+});

@@ -1,12 +1,10 @@
-/* General Styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Arial, sans-serif;
   background: #ffffff;
   color: #000000;
   overflow: hidden;
-  text-align: left;
 }
 
 body.dark-mode {
@@ -14,7 +12,6 @@ body.dark-mode {
   color: #ffffff;
 }
 
-/* Title Bar */
 .titlebar {
   display: flex;
   align-items: center;
@@ -34,6 +31,33 @@ body.dark-mode {
   color: #ffffff;
   font-size: 14px;
   padding-left: 10px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.social-icon {
+  color: #ffffff;
+  font-size: 16px;
+  transition: color 0.3s, transform 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #1a73e8;
+  transform: scale(1.2);
+}
+
+body.dark-mode .social-icon {
+  color: #ffffff;
+}
+
+body.dark-mode .social-icon:hover {
+  color: #1a73e8;
 }
 
 .window-controls {
@@ -66,7 +90,6 @@ body.dark-mode {
   background: #ff5f56;
 }
 
-/* Toolbar */
 .toolbar {
   display: flex;
   align-items: center;
@@ -129,7 +152,6 @@ body.dark-mode .nav-button:hover {
   color: #000000;
   font-size: 14px;
   outline: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 #url-bar:focus {
@@ -180,51 +202,44 @@ body.dark-mode #go:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Suggestions */
-.suggestions {
-  position: absolute;
-  top: 100%;
-  left: 0;
+.loading-indicator {
   width: 100%;
-  background: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  height: 3px;
+  background: transparent;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
   display: none;
 }
 
-.suggestions.show {
+.loading-indicator.active {
   display: block;
+  background: #1a73e8;
+  animation: loading 1.5s infinite;
 }
 
-.suggestions div {
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: background 0.2s;
+@keyframes loading {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  51% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
 }
 
-.suggestions div:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-body.dark-mode .suggestions {
-  background: #2d2d2d;
-  border-color: #444;
-}
-
-body.dark-mode .suggestions div {
-  color: #ffffff;
-}
-
-body.dark-mode .suggestions div:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Content */
 .content {
   padding: 20px;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 100px);
 }
 
 .homepage {
@@ -266,80 +281,251 @@ body.dark-mode .box {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Search Results */
-#search-results {
-  margin-top: 20px;
-  height: 100%;
+.tab-content {
+  display: none;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 90px);
+  border: none;
 }
 
 iframe {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 8px;
 }
 
-/* Blocked Message */
-.blocked-message {
-  text-align: center;
-  padding: 20px;
-  background: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 4px;
-  margin: 20px;
+.copy-right {
+  font-size: 11px;
+  width: 100px;
+  font-family: Arial, sans-serif;
 }
-
-.blocked-message p {
-  margin: 0 0 10px 0;
-  color: #721c24;
-}
-
-.blocked-message button {
-  background: #dc3545;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.blocked-message button:hover {
-  background: #c82333;
-}
-
-body.dark-mode .blocked-message {
-  background: #4a1d22;
-  border-color: #6a1a21;
-}
-
-body.dark-mode .blocked-message p {
-  color: #f8d7da;
-}
-
-body.dark-mode .blocked-message button {
-  background: #a71d2a;
-}
-
-body.dark-mode .blocked-message button:hover {
-  background: #8c1a24;
-}
-
-/* Weather Widget */
-.weather-widget {
+.social-icons-container {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
   padding: 10px 20px;
   border-radius: 25px;
-  font-size: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
-.weather-widget i {
-  margin-right: 10px;
+.social-icons {
+  display: flex;
+  gap: 15px;
 }
 
-body.dark-mode .weather-widget {
-  background: rgba(255, 255, 255, 0.1);
+.social-icon {
+  color: #2d2d2d;
+  font-size: 20px;
+  transition: color 0.3s, transform 0.3s;
+  text-decoration: none;
+  position: relative;
+}
+
+.social-icon:hover {
+  color: #1a73e8;
+  transform: scale(1.2);
+}
+
+/* إظهار اسم الموقع عند التمرير */
+.social-icon::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.social-icon:hover::after {
+  opacity: 1;
+}
+
+body.dark-mode .social-icons-container {
+  background: rgba(45, 45, 45, 0.8);
+}
+
+body.dark-mode .social-icon {
+  color: #ffffff;
+}
+
+body.dark-mode .social-icon:hover {
+  color: #1a73e8;
+}
+.animated-text-container {
+  position: fixed;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.split-parent {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-blue-500 {
+  color: #3b82f6;
+}
+.safe-browser {
+  text-align: center;
+  position: relative;
+  top: 30px;
+  font-family: Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3b82f6; 
+  animation: moveUp 1.5s ease-out forwards;
+}
+
+@keyframes moveUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+.welcome-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: moveUp 1.5s ease-out forwards;
+}
+
+.welcome-container {
+  text-align: center;
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: moveUp 1.5s ease-out forwards;
+}
+
+.welcome-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1a73e8;
+  animation: moveUp 1.5s ease-out forwards;
+}
+
+.welcome-container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #333;
+  animation: moveUp 1.5s ease-out forwards;
+}
+
+.welcome-container button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  animation: moveUp 1.5s ease-out forwards;
+}
+
+.welcome-container button:hover {
+  background-color: #1557b0;
+}
+
+.welcome-overlay.active ~ .app {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #000000;
+  overflow: hidden;
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background: #2d2d2d;
+  -webkit-app-region: drag;
+  padding: 0 10px;
+}
+
+.safe-browser {
+  text-align: center;
+  position: relative;
+  top: 30px;
+  font-family: Arial, sans-serif;
+  font-size: 2.5rem; 
+  font-weight: bold; 
+  color: #3b82f6; 
+  animation: moveUp 1.5s ease-out forwards, changeColor 5s infinite alternate;
+  transition: color 0.5s ease, transform 0.5s ease;
+}
+
+@keyframes moveUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    color: #3b82f6; 
+  }
+  25% {
+    color: #ff6b6b; 
+  }
+  50% {
+    color: #4ecdc4; 
+  }
+  75% {
+    color: #ff9f43; 
+  }
+  100% {
+    color: #6c5ce7; 
+  }
+}
+
+.safe-browser:hover {
+  color: #1a73e8; 
+  transform: scale(1.1); 
 }

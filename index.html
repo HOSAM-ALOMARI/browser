@@ -4,63 +4,88 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Safe Browser - Hosam Alomari</title>
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  
 </head>
 <body>
-  <div class="titlebar">
-    <div class="titlebar-drag">
-      <span>Safe Browser - Hosam Alomari</span>
-    </div>
-    <div class="window-controls">
-      <button id="minimize" class="control-button"><i class="fas fa-window-minimize"></i></button>
-      <button id="maximize" class="control-button"><i class="fas fa-window-maximize"></i></button>
-      <button id="close" class="control-button"><i class="fas fa-times"></i></button>
-    </div>
-  </div>
-  <div class="toolbar">
-    <div class="navigation-buttons">
-      <button id="back" class="nav-button"><i class="fas fa-arrow-left"></i></button>
-      <button id="forward" class="nav-button"><i class="fas fa-arrow-right"></i></button>
-      <button id="reload" class="nav-button"><i class="fas fa-sync-alt"></i></button>
-    </div>
-    <div class="search-container">
-      <input type="text" id="url-bar" placeholder="Search or enter a URL...">
-      <button id="go" class="nav-button"><i class="fas fa-search"></i></button>
-      <button id="bookmark" class="nav-button"><i class="fas fa-bookmark"></i></button>
-      <div id="suggestions" class="suggestions"></div>
-    </div>
-    <div class="toolbar-buttons">
-      <button id="theme-toggle" class="nav-button"><i class="fas fa-moon"></i></button>
-    </div>
-  </div>
-  <div class="content">
-    <div class="homepage">
-      <div class="boxes">
-        <div class="box" id="bookmarks" onclick="navigateTo('bookmarks.html')">
-          <i class="fas fa-bookmark"></i>
-          <h3>Bookmarks</h3>
-        </div>
-        <div class="box" id="history" onclick="navigateTo('history.html')">
-          <i class="fas fa-history"></i>
-          <h3>History</h3>
-        </div>
-        <div class="box" id="downloads" onclick="navigateTo('downloads.html')">
-          <i class="fas fa-download"></i>
-          <h3>Downloads</h3>
-        </div>
+  <div class="app">
+    <div class="titlebar">
+      <div class="titlebar-drag">
+        <span>Safe Browser - Hosam Alomari</span>
+      </div>
+      <div class="window-controls">
+        <button id="minimize" class="control-button"><i class="fas fa-window-minimize"></i></button>
+        <button id="maximize" class="control-button"><i class="fas fa-window-maximize"></i></button>
+        <button id="close" class="control-button close"><i class="fas fa-times"></i></button>
       </div>
     </div>
-    <div id="search-results" class="search-results">
-      <!-- Search results will be displayed here -->
+
+    <div class="toolbar">
+      <div class="navigation-buttons">
+        <button id="back" class="nav-button"><i class="fas fa-arrow-left"></i></button>
+        <button id="forward" class="nav-button"><i class="fas fa-arrow-right"></i></button>
+        <button id="reload" class="nav-button"><i class="fas fa-sync-alt"></i></button>
+        <button id="home" class="nav-button"><i class="fas fa-home"></i></button>
+        <button id="settings" class="nav-button"><i class="fas fa-cog"></i></button>
+      </div>
+      <div class="search-container">
+        <input type="text" id="url-bar" placeholder="Search with Bing or enter a URL...">
+        <button id="go" class="nav-button"><i class="fas fa-search"></i></button>
+        <button id="theme-toggle" class="nav-button"><i class="fas fa-moon"></i></button>
+        <h1 class="copy-right">hosam alomari</h1>
+        <div id="loading-indicator" class="loading-indicator"></div>
+      </div>
+    </div>
+    <h1 class="safe-browser">Safe Browser</h1>
+    <div class="content">
+      <div class="homepage">
+        <div class="boxes">
+          <div class="box" id="bookmarks" onclick="navigateTo('bookmarks.html')">
+            <i class="fas fa-bookmark"></i>
+            <h3>Bookmarks</h3>
+          </div>
+          <div class="box" id="history" onclick="navigateTo('history.html')">
+            <i class="fas fa-history"></i>
+            <h3>History</h3>
+          </div>
+          <div class="box" id="downloads" onclick="navigateTo('downloads.html')">
+            <i class="fas fa-download"></i>
+            <h3>Downloads</h3>
+          </div>
+        </div>
+      </div>
+      <div id="results-container"></div>
+      <div id="tab-content" class="tab-content"></div>
+    </div>
+
+    <div class="social-icons-container">
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" class="social-icon" title="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://web.whatsapp.com" target="_blank" class="social-icon" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://github.com" target="_blank" class="social-icon" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="weather-widget">
-    <div id="weather">
-      <i class="fas fa-cloud-sun"></i>
-      <span id="weather-info">Loading weather...</span>
-    </div>
-  </div>
+
   <script src="renderer.js"></script>
 </body>
 </html>

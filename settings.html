@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Safe Browser</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style-setting.css">
+</head>
+<body>
+  <div class="app">
+    <div class="content">
+      <h1>Settings</h1>
+      <div class="settings-options">
+        <!-- Search Engine -->
+        <div class="setting">
+          <label for="search-engine">Search Engine:</label>
+          <select id="search-engine">
+            <option value="bing">Bing</option>
+            <option value="google">Google</option>
+            <option value="duckduckgo">DuckDuckGo</option>
+          </select>
+        </div>
+
+        <!-- Default Homepage -->
+        <div class="setting">
+          <label for="homepage">Default Homepage:</label>
+          <input type="text" id="homepage" placeholder="Enter homepage URL">
+        </div>
+
+        <!-- Enable/Disable JavaScript -->
+        <div class="setting">
+          <label for="enable-js">Enable JavaScript:</label>
+          <input type="checkbox" id="enable-js" checked>
+        </div>
+
+        <!-- Enable/Disable Images -->
+        <div class="setting">
+          <label for="enable-images">Enable Images:</label>
+          <input type="checkbox" id="enable-images" checked>
+        </div>
+
+        <!-- Custom User Agent -->
+        <div class="setting">
+          <label for="user-agent">Custom User Agent:</label>
+          <input type="text" id="user-agent" placeholder="Enter custom user agent">
+        </div>
+
+        <!-- Clear History -->
+        <div class="setting">
+          <button id="clear-history">Clear History</button>
+        </div>
+
+        <!-- Clear Downloads -->
+        <div class="setting">
+          <button id="clear-downloads">Clear Downloads</button>
+        </div>
+
+        <!-- Reset Settings -->
+        <div class="setting">
+          <button id="reset-settings">Reset Settings</button>
+        </div>
+
+        <!-- Save Button -->
+        <div class="setting">
+          <button id="save-settings">Save Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
